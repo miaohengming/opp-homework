@@ -1,0 +1,48 @@
+class block
+{
+public:
+	int x,y;//方块位置
+	int b[4][4];//方块形状
+	
+	void getp(int X,int Y,int b1[4][4])//方块初始化 
+	{
+		x=X;y=Y;
+		memcpy(b,b1,64);
+	}
+	
+	void setcolor(int b[4][4])//设置方块颜色 
+	{
+		switch(b[0][0])
+	    {
+	    case 10:case 11:				SCT(hOut,FGRE);				break;
+	    case 12:case 13:case 14:case 15:SCT(hOut,FBLU|FGRE|FINT);	break;
+	    case 16:case 17:case 18:case 19:SCT(hOut,FRED|FGRE|FINT);	break;
+	    case 20:case 21:				SCT(hOut,FGRE|FINT);		break;
+	    case 22:case 23:				SCT(hOut,FBLU|FINT);		break;
+	    case 24:case 25:case 26:case 27:SCT(hOut,FRED|FBLU|FINT);	break;
+	    case 28:						SCT(hOut,FRED|FINT);		break;
+	    default:
+			break;
+	    }
+	}
+	
+	void print()//打印方块
+	{
+	    setcolor(b);
+	    for(i=0;i<4;i++)
+	    {
+	        if(i+x<0) continue;
+	        for(j=0;j<4;j++) if(b[i][j]==1) gotoXY(2*(y+j),x+i,"■");
+	    }
+	}
+	
+	void clear()//消除方块
+	{
+		for(i=0;i<4;i++)
+	    {
+	        if(i+x<0) continue;
+	        for(j=0;j<4;j++) if(b[i][j]==1) gotoXY(2*(y+j),x+i,"  ");
+		}
+	}
+
+};
