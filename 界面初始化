@@ -1,0 +1,35 @@
+void initialWindow()
+{
+    SetConsoleTitle("我罗斯");
+    COORD size = { 84, 25 };
+    SetConsoleScreenBufferSize(hOut, size);
+    SMALL_RECT rc = { 0, 0, 83, 24 };
+    SetConsoleWindowInfo(hOut, true, &rc);
+    CONSOLE_CURSOR_INFO cursor_info = { 1, 0 };
+    SetConsoleCursorInfo(hOut, &cursor_info);
+}
+
+void initialPrint()
+{
+	SCT(hOut,FRED|FGRE|FBLU);
+	gotoxy(0,0);for(i=0;i<25;i++)
+	cout <<"                                                                                 " <<endl;
+    gotoxy(0,0);for(i=0;i<20;i++)
+    cout << "■                    ■☆                            ☆■                    ■" << endl;
+    gotoXY(26,0,"☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
+    gotoxy(0 ,20);
+    cout << "■■■■■■■■■■■■☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆■■■■■■■■■■■■";
+    gotoXY(26, 2,"分  数：      ");
+    gotoXY(26, 3,"关  卡：      ");
+    gotoXY(40, 2,"分  数：      ");
+    gotoXY(40, 3,"关  卡：      ");
+    gotoXY(26, 4,"下一方块：");
+    gotoXY(40, 4,"下一方块：");
+    gotoXY(26, 9,"操作方法：");
+    gotoXY(30, 11,"玩家 1：w a s d ");
+    gotoXY(30, 12,"玩家 2：↑←↓→");
+    gotoXY(30, 13,"空格键：开始/暂停");
+    gotoXY(30, 14,"Esc 键：退出");
+    SCT(hOut,FGRE);gotoXY(26, 1,"玩家1");
+    SCT(hOut,FRED);gotoXY(40, 1,"玩家2");
+}
