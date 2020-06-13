@@ -1,0 +1,14 @@
+class map
+{
+public:
+	int x,y;//地图位置
+	int m[21][12];//地图状态
+	
+	void getp(int X,int Y)//地图初始化,0-空,1-方块 
+	{
+		x=X;y=Y;
+		for(i=0;i<21;i++) for(j=0;j<12;j++) m[i][j]=1;
+	    for(i=0;i<20;i++) for(j=1;j<11;j++) m[i][j]=0;
+	}
+	
+}; 
